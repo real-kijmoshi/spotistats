@@ -16,7 +16,7 @@ function App() {
 
     if (code && !storedToken) {
       exchangeCodeForToken(code);
-      window.history.replaceState({}, document.title, "/"); // Clean up URL
+      window.history.replaceState({}, document.title, "/");
     } else if (storedToken) {
       setIsAuthenticated(true);
     }
@@ -68,14 +68,19 @@ function App() {
       client_id: import.meta.env.VITE_CLIENT_ID,
       response_type: "code",
       redirect_uri: import.meta.env.VITE_REDIRECT_URI,
-      scope: "user-read-private user-read-email user-top-read user-library-read",
+      scope:
+        "user-read-private user-read-email user-top-read user-library-read",
     })}`;
     window.location.href = authUrl;
   };
 
   return (
     <div className="w-full h-full">
-      {isAuthenticated ? <Stats /> : <Landing handleLogin={handleLogin} isLoading={false} />}
+      {isAuthenticated ? (
+        <Stats />
+      ) : (
+        <Landing handleLogin={handleLogin} isLoading={false} />
+      )}
     </div>
   );
 }
