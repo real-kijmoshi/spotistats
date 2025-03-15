@@ -406,7 +406,7 @@ export default function Stats() {
                 {tracks.map((track, index) => (
                   <div 
                     key={track.id} 
-                    className="group flex items-center p-3 hover:bg-white hover:bg-opacity-10 rounded-lg transition-colors cursor-pointer"
+                    className="group flex items-center p-3 hover:bg-slate-800 hover:bg-opacity-10 rounded-lg transition-colors cursor-pointer"
                     onClick={() => openDetailsModal(track)}
                   >
                     <div className="w-8 text-center text-gray-500 font-semibold">{index + 1}</div>
