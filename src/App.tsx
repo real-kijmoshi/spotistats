@@ -69,7 +69,7 @@ function App() {
       response_type: "code",
       redirect_uri: import.meta.env.VITE_REDIRECT_URI,
       scope:
-        "user-read-private user-read-email user-top-read user-library-read",
+        "user-top-read",
     })}`;
     window.location.href = authUrl;
   };
