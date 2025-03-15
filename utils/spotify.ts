@@ -133,7 +133,7 @@ const getTracks = async (
 ): Promise<Track[]> => {
   try {
     const res = await spotify.get(
-      `/me/top/tracks?time_range=${duration}&limit=${limit}&offset=${offset}&market=US`
+      `/me/top/tracks?time_range=${duration}&limit=${limit}&offset=${offset}`
     );
     return res.data.items;
   } catch (error: unknown) {
@@ -172,10 +172,9 @@ const getTopArtists = async (
 // Fetch track by ID
 const getTrackById = async (
   trackId: string,
-  market: string = "US"
 ): Promise<Track> => {
   try {
-    const res = await spotify.get(`/tracks/${trackId}?market=${market}`);
+    const res = await spotify.get(`/tracks/${trackId}`);
     return res.data;
   } catch (error: unknown) {
     console.error("Error fetching track:", (error as Error).message);

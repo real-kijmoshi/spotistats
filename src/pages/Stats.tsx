@@ -186,7 +186,7 @@ export default function Stats() {
   // Audio player handler
   const togglePlay = async (track: Track) => {
     console.log("Toggling play for track:", track.name);
-    const trackInfo = await api.getTrackById(track.id, user?.country || "US");
+    const trackInfo = await api.getTrackById(track.id);
     console.log("Track Info", trackInfo);
 
 
@@ -282,7 +282,20 @@ export default function Stats() {
             {user?.product && (
               <span className="text-xs text-gray-400">{user.product === "premium" ? "Premium" : "Free"}</span>
             )}
+
+            <button
+              onClick={() => {
+                localStorage.removeItem("access_token");
+                localStorage.removeItem("refresh_token");   
+                localStorage.removeItem("expires_at");
+                window.location.href = "/";
+              }}
+              className="text-red-400 text-xs ml-4 cursor-pointer"
+            >
+              logout
+            </button>
           </div>
+
         </div>
       </div>
 
