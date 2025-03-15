@@ -26,6 +26,7 @@ interface Track {
   preview_url: string;
   uri: string;
   is_playable: boolean;
+  external_urls: { spotify: string };
 }
 
 interface Artist {
@@ -696,7 +697,10 @@ export default function Stats() {
                       >
                         {isPlaying && currentTrack === modalContent.id ? "Pause" : "Play Preview"}
                       </button>
-                      <button className="px-4 py-2 bg-gray-800 rounded-full text-gray-300 hover:bg-gray-700">
+                      <button 
+                        className="px-4 py-2 bg-gray-800 rounded-full text-gray-300 hover:bg-gray-700"
+                        onClick={() => window.open(modalContent.external_urls.spotify, "_blank")}
+                        >
                         Open in Spotify
                       </button>
                     </div>
@@ -764,7 +768,10 @@ export default function Stats() {
                       </p>
                       
                       <div className="mt-4">
-                        <button className="px-4 py-2 bg-green-500 text-black rounded-full hover:bg-green-400">
+                        <button 
+                            className="px-4 py-2 bg-green-500 text-black rounded-full hover:bg-green-400"
+                            onClick={() => window.open(modalContent.external_urls.spotify, "_blank")}
+                        >
                           Open in Spotify
                         </button>
                       </div>

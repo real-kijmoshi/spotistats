@@ -33,6 +33,7 @@ interface Track {
   preview_url: string;
   uri: string;
   is_playable: boolean;
+  external_urls: { spotify: string };
 }
 
 interface Artist {
